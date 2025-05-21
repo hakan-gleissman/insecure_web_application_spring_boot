@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 /*
+
 REST-controller som ansvarar för att visa upp en fil i applikationen.
 Endpointen /readFile i denna REST-controller är inte säker. Den kan användas
 för att komma åt filer på din dator, utanför denna webbapplikation.

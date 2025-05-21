@@ -10,16 +10,21 @@ import se.reky.hakan.insecure.model.User;
 @Component
 public class DatabaseInitializer {
 
-    @Autowired
+
     private UserRepository userRepository;
+
+    public DatabaseInitializer(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
     //Denna metod skapar två users och insertar dem i databasen
-    @PostConstruct
+    @PostConstruct//Annotationen gör att metoden körs vid uppstart av appen
     public void init() {
         //admin user
         User admin = new User();
         admin.setUsername("admin");
         admin.setPassword("adminpass");
-        //vanliga user
+        //vanlig user
         User user = new User();
         user.setUsername("user");
         user.setPassword("userpass");

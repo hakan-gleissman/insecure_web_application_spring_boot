@@ -3,6 +3,7 @@ package se.reky.hakan.insecure.web;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 /*
 Denna Controllers enda endpoint /greet använder en HTML-sida som gränssnitt (se filen
@@ -15,9 +16,10 @@ Uppgiften är sedan att försöka åtgärda denna sårbarhet.
 Tips: läs om klassen org.springframework.web.util.HtmlUtils
  */
 @Controller
+@RequestMapping("/greet")
 public class GreetingController {
 
-    @GetMapping("/greet")
+    @GetMapping
     public String greet(@RequestParam(name = "name", required = false, defaultValue = "World") String name, Model model) {
         model.addAttribute("name", name);
         return "greet";
